@@ -33,14 +33,44 @@
       <header>
         <h1>Bank Account</h1>
       </header>
-      <form id="input">
-        <div class="form-group">
-          <label for="blank">Enter a value</label>
-          <input type="text" class="form-control" id="blank" placeholder=" ">
+      <div class="row">
+        <div class="col-md-6">
+          <form id="account-register">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name-accountholder">
+            </div>
+            <div class="form-group">
+              <label for="deposit-initial">Initial Deposit</label>
+              <input type="number" class="form-control" id="deposit-initial">
+            </div>
+            <button type="submit" name="button">Register</button>
+          </form>
         </div>
-        <button type="submit" name="button">Submit</button>
-      </form>
-      <div id="output">
+        <div class="col-md-6">
+          <form id="deposit-withdrawal">
+            <div class="form-group">
+              <label for="name">Enter an amount</label>
+              <input type="number" class="form-control" id="withdraw-deposit-amount">
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="withdraw-deposit" id="withdraw" value="-1" checked>
+                Withdraw
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="withdraw-deposit" id="deposit" value="1">
+                Deposit
+              </label>
+            </div>
+            <button type="submit" name="button">Transfer</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="balance-current">
 
       </div>
       <footer>
