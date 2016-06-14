@@ -10,9 +10,10 @@ Account.prototype.transfer = function(integer, deposit) {
     this.balance += deposit * integer;
 }
 
-
-
-
+Account.prototype.output = function(nameOnAccount, currentBalance){
+  nameOnAccount.text(this.name);
+  currentBalance.text(this.balance);
+}
 
 // Calls input from form-input.html
 
@@ -26,15 +27,20 @@ $(document).ready(function(){
     var balance = parseInt($("#deposit-initial").val());
     var newAccount = new Account(accountholderName, balance)
     accountRegistry.push(newAccount);
-    $('#balance-current').text(newAccount.balance);
+    $('#withdraw-deposit-zone').show();
+    $("#balance-current").show();
+    console.log(accountRegistry.length-1)
+    $('#account-selector').append('<option value="'+ accountRegistry.length +'">'+newAccount.name+'</option>');
+    newAccount.output($(".name-accountholder"),$('.new-balance'))
   });
 
   $("#deposit-withdrawal").submit(function (event) {
     event.preventDefault();
-    currentAccount=accountRegistry[0];
+    currentAccountIndex=parseInt($("select#account-selector").val());
+    currentAccount=accountRegistry[currentAccountIndex-1];
     var amount = parseInt($("input#withdraw-deposit-amount").val());
     var deposit = parseInt($("input:radio[name=withdraw-deposit]:checked").val());
     currentAccount.transfer(amount, deposit);
-    $('#balance-current').text(currentAccount.balance);
+    currentAccount.output($(".name-accountholder"),$('.new-balance'))
   })
 });

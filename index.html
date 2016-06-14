@@ -48,31 +48,39 @@
           </form>
         </div>
         <div class="col-md-6">
-          <form id="deposit-withdrawal">
-            <div class="form-group">
-              <label for="name">Enter an amount</label>
-              <input type="number" class="form-control" id="withdraw-deposit-amount">
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="withdraw-deposit" id="withdraw" value="-1" checked>
-                Withdraw
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="withdraw-deposit" id="deposit" value="1">
-                Deposit
-              </label>
-            </div>
-            <button type="submit" name="button">Transfer</button>
-          </form>
+          <div id="withdraw-deposit-zone">
+            <form id="deposit-withdrawal">
+              <label for="account-selector">Select your account</label>
+              <select class="form-control" id="account-selector">
+              </select>
+              <div class="form-group">
+                <label for="name">Enter an amount</label>
+                <input type="number" class="form-control" id="withdraw-deposit-amount">
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="withdraw-deposit" id="withdraw" value="-1" checked>
+                  Withdraw
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="withdraw-deposit" id="deposit" value="1">
+                  Deposit
+                </label>
+              </div>
+              <button type="submit" name="button">Transfer</button>
+            </form>
+          </div>
+          <div id="balance-current">
+            <p>
+              Hello <span class="name-accountholder"></span>.  Thank you for your business.  Your new balance is: $<span class="new-balance"></span>
+            </p>
+          </div>
         </div>
       </div>
 
-      <div id="balance-current">
 
-      </div>
       <footer>
         <p>&copy; 2016 Epicodus Pair Project, Inc.</p>
       </footer>
